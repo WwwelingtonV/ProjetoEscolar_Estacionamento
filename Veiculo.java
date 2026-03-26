@@ -7,16 +7,27 @@ public class Veiculo {
     private double cupomDesconto;
     private boolean estaEstacionado;
     private double valorUltimoPagamento;
-
+    
+    public void quantasRodas(){
+        System.out.println("Genérico!");
+    }
+    
     // CONSTRUTOR (Aula 04): Define os valores especificos na criacao
-    public Veiculo(String modelo, String placa, double valorHora, double cupom) {
+    public Veiculo(String modelo, String placa, double valorHora, double cupomDesconto) {
         this.modelo = modelo;
         this.placa = placa;
         this.estaEstacionado = false; // Comeca fora do patio
         
-        setValorHora(valorHora); //Pra chamar o setter
-        setCupomDesconto(cupomDesconto); //Pra chamar o setter
+        setValorHora(valorHora);
+        setCupomDesconto(cupomDesconto);
     }
+    
+    public Veiculo(String modelo, String placa) {
+        this.modelo = "WWW-000";
+        this.placa = placa;
+    }
+    
+    
 
     // METODO 1: Registra entrada
     void registrarEntrada(int hora) {
@@ -79,17 +90,17 @@ public class Veiculo {
     }
     
     //SETTERS
-    public void setValorHora(double valorHora){
-        if(valorHora > 0.0){
-            this.valorHora = valorHora;
+    public void setValorHora(double valorH){
+        if(valorH > 0.0){
+            this.valorHora = valorH;
         }else{
             System.out.println("Erro. O valor da hora deve ser maior que 0.");
         }
     }
     
-    public void setCupomDesconto(double cupomDesconto){
-        if(cupomDesconto > 0.0 && cupomDesconto < 50.0){
-            this.cupomDesconto = cupomDesconto;
+    public void setCupomDesconto(double desconto){
+        if(desconto > 0.0 && desconto < 50.0){
+            this.cupomDesconto = desconto;
         }else{
             System.out.println("Valor de desconto inválido.");
         }
